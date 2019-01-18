@@ -28,7 +28,7 @@ function init() {
 
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
-    var dice = Math.floor(Math.random() *6) +1;
+    
     
     if(gamePlaying) {
         var dice1 = Math.floor(Math.random() *6) +1;
