@@ -16,6 +16,7 @@ body {
     background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(img/back.jpg);
     background-size: cover;
     background-position: center;
+    font-family: 'Lato', sans-serif;
     font-weight: 300;
     position: relative;
     height: 100vh;
@@ -49,7 +50,7 @@ body {
     letter-spacing: 2px;
     font-weight: 100;
     color: #EB4D4D;
-    margin-bottom: 130px;
+    margin-bottom: 60px;
     position: relative;
 }
 
@@ -58,7 +59,7 @@ body {
     font-size: 80px;
     font-weight: 100;
     color: #EB4D4D;
-    margin-bottom: 130px;
+    margin-bottom: 100px;
 }
 
 .active {background-color: #f7f7f7;}
@@ -86,8 +87,9 @@ body {
 
 .player-current-lable {
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     font-size: 12px;
+    font-weight: 500;
     color: #222;
 }
 
@@ -119,6 +121,13 @@ button:focus {
 .btn-roll {top: 403px;}
 .btn-hold {top: 467px;}
 
+.fa {
+    margin-right: 10px;
+    color: #EB4D4D;
+    font-size: 32px;
+    line-height: 1;
+}
+
 
 
 
@@ -131,5 +140,32 @@ button:focus {
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10)
 }
 
+#dice-1 {
+    top: 120px;
+}
+#dice-2 {
+    top: 258px;
+}
+
+
+
 .winner {background-color: #f7f7f7;}
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+.final-score {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 520px;
+    width: 150px;
+    padding: 10px;
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+}
+
+.final-score:focus {
+    outline: none;
+}

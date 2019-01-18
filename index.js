@@ -1,6 +1,6 @@
 var score, roundScore, activePlayer, gamePlaying;
 
-var dice = Math.floor(Math.random() *6) +1;
+
 
 
 init();
@@ -23,19 +23,25 @@ function init() {
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('winner');
     document.querySelector('.player-0-panel').classList.add('active');
+
 }
 
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
+    var dice = Math.floor(Math.random() *6) +1;
     
     if(gamePlaying) {
-        var dice = Math.floor(Math.random() *6) +1;
-        var diceImg = document.querySelector('.dice');
-        diceImg.style.display = 'block';
-        diceImg.src ='img/dice-' + dice + '.png';
+        var dice1 = Math.floor(Math.random() *6) +1;
+        var dice2 = Math.floor(Math.random() *6) +1;
 
-        if(dice !== 1) {
-            roundScore += dice;
+        document.getElementById('dice-1').style.display = 'block';
+        document.getElementById('dice-2').style.display = 'block';
+    
+        document.getElementById('dice-1').src ='img/dice-' + dice1 + '.png';
+        document.getElementById('dice-2').src ='img/dice-' + dice2 + '.png';
+
+        if(dice1 !== 1 && dice2 !==1) {
+            roundScore = dice1 + dice2;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
         } else {
             nextPlayer()
@@ -52,7 +58,16 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
         score[activePlayer] += roundScore;
         document.querySelector('#score-' + activePlayer).textContent = score[activePlayer];
 
-        if(score[activePlayer] >= 10) {
+        var input = document.querySelector('.final-score').value;
+        var winScore;
+
+        if(input) {
+            winScore = input;
+        } else {
+            winScore = 100;
+        }
+
+        if(score[activePlayer] >= winScore) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winer!';
             diceDisplayNone()
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -78,6 +93,7 @@ function nextPlayer() {
 document.querySelector('.btn-new').addEventListener('click', init);
 
 function diceDisplayNone() {
-    document.querySelector('.dice').style.display = 'none';
+    document.getElementById('dice-1').style.display = 'none';
+    document.getElementById('dice-2').style.display = 'none';
 };
 
